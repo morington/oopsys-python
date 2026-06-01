@@ -1,6 +1,6 @@
 [project]
 name = "oopsys-python"
-version = "0.1.0"
+version = "0.1.1"
 description = "Catch exceptions, log them, and optionally report to an agent — without crashing your app."
 readme = "README.md"
 license = "MIT"
