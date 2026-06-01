@@ -1,15 +1,35 @@
 [project]
 name = "oopsys-python"
 version = "0.1.0"
-description = "oops, system crashed :)"
+description = "Catch exceptions, log them, and optionally report to an agent — without crashing your app."
 readme = "README.md"
+license = "MIT"
+license-files = ["LICENSE"]
 requires-python = ">=3.13"
+authors = [{ name = "Adam Morington" }]
+keywords = ["logging", "errors", "structlog", "async", "monitoring", "exceptions"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.13",
+    "Programming Language :: Python :: 3 :: Only",
+    "Topic :: Software Development :: Libraries",
+    "Topic :: System :: Logging",
+    "Typing :: Typed",
+]
 dependencies = [
-    "kitstructlog>=0.1.2",
+    "httpx>=0.28.1",
     "pydantic>=2.13.4",
     "pydantic-settings>=2.14.1",
     "structlog>=25.5.0",
 ]
+
+[project.urls]
+Homepage = "https://github.com/morington/oopsys-python"
+Repository = "https://github.com/morington/oopsys-python"
+Issues = "https://github.com/morington/oopsys-python/issues"
 
 [build-system]
 requires = ["hatchling"]
@@ -17,6 +37,14 @@ build-backend = "hatchling.build"
 
 [tool.hatch.build.targets.wheel]
 packages = ["src/oopsys_python"]
+
+[tool.hatch.build.targets.sdist]
+include = [
+    "/src/oopsys_python",
+    "/README.md",
+    "/LICENSE",
+    "/pyproject.toml",
+]
 
 [tool.bandit]
 exclude_dirs = ["tests", "examples"]
